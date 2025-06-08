@@ -44,8 +44,6 @@ export class TaskBoardComponent {
     )}`;
   }
 
-  handle() {}
-
   notStartedTasks: ITask[] = [];
   inProgressTasks: ITask[] = [];
   finishedTasks: ITask[] = [];
@@ -133,9 +131,6 @@ export class TaskBoardComponent {
   }
 
   showAlert(): void {
-    console.log(
-      `Titulo: ${this.title.length} | Descrição: ${this.description.length}`
-    );
     if (this.title.length < 3 || this.description.length < 3) {
       Swal.fire({
         icon: 'error',
