@@ -3,6 +3,11 @@
   margin: 0;
   box-sizing: border-box;
 }
+:root {
+  --color-lilac-100: #fcfcfc;
+  --color-lilac-300: #f2eaf6;
+  --color-lilac-600: #8241a4;
+}
 main {
   display: flex;
   flex-direction: column;

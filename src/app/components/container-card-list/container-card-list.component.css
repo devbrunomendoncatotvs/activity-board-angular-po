@@ -10,13 +10,13 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 .card-remuse-task.one {
-  background-color: #fcfcfc;
+  background-color: var(--color-lilac-100);
 }
 .card-remuse-task.two {
-  background-color: #f2eaf6;
+  background-color: var(--color-lilac-300);
 }
 .card-remuse-task.three {
-  background-color: #8241a4;
+  background-color: var(--color-lilac-600);
 }
 .card-remuse-task h3 {
   font-size: 20px;
@@ -68,13 +68,13 @@
   opacity: 0;
 }
 .card-list-item.one {
-  background-color: #fdfdfd;
+  background-color: var(--color-lilac-100);
 }
 .card-list-item.two {
-  background-color: #f2eaf6;
+  background-color: var(--color-lilac-300);
 }
 .card-list-item.three {
-  background-color: #8241a4;
+  background-color: var(--color-lilac-600);
 }
 .card-list-item h4 {
   font-size: 16px;
@@ -144,23 +144,23 @@
   cursor: pointer;
 }
 .btnNotStarted {
-  background-color: #fcfcfc;
+  background-color: var(--color-lilac-100);
   color: #1e1e1e;
 }
 .btnStart {
-  background-color: #e4c5f3;
+  background-color: var(--color-lilac-300);
   color: #1e1e1e;
 }
 .btnFinish {
-  background-color: #8a4eaa;
-  color: #fcfcfc;
+  background-color: var(--color-lilac-600);
+  color: var(--color-lilac-100);
 }
 .btnDelete {
   background-color: #fa5d5d;
-  color: #fcfcfc;
+  color: var(--color-lilac-100);
 }
 
-@media (max-width: 980px) {
+@media (max-width: 768px) {
   .card-remuse-task ul {
     min-height: 240px;
     max-height: 240px;
