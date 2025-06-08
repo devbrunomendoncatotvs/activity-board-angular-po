@@ -1,0 +1,81 @@
+<main>
+  <section class="section-form">
+    <h1>Quadro de atividades</h1>
+    <form class="task-form" (ngSubmit)="handleSubmitTask()" #taskForm="ngForm">
+      <div class="container-input">
+        <po-input
+          [(ngModel)]="title"
+          name="title"
+          p-label="Título"
+          class="po-lg-12"
+        ></po-input>
+        <po-input
+          [(ngModel)]="description"
+          name="description"
+          p-label="Descrição"
+          class="po-lg-12"
+        ></po-input>
+      </div>
+      <po-button
+        p-label="Adicionar atividade"
+        (p-click)="showAlert()"
+        (p-click)="handleSubmitTask()"
+        class="po-lg-12"
+      ></po-button>
+    </form>
+  </section>
+
+  <section class="section-resume-task">
+    <h2>Resumo de atividades</h2>
+
+    <div class="container-resume-task">
+      <app-container-card-list
+        [title]="'Não iniciadas'"
+        [className]="'one'"
+        [tasks]="notStartedTasks"
+        (notStarted)="notStartedTask($event)"
+        (inProgress)="inProgressTask($event)"
+        (finished)="finishedTask($event)"
+        (remove)="removeTask($event)"
+        cdkDropList
+        #notStarted="cdkDropList"
+        [cdkDropListData]="notStartedTasks"
+        [cdkDropListConnectedTo]="[inProgress, finished]"
+        (cdkDropListDropped)="drop($event)"
+      >
+      </app-container-card-list>
+
+      <app-container-card-list
+        [title]="'Iniciadas'"
+        [tasks]="inProgressTasks"
+        [className]="'two'"
+        (notStarted)="notStartedTask($event)"
+        (inProgress)="inProgressTask($event)"
+        (finished)="finishedTask($event)"
+        (remove)="removeTask($event)"
+        cdkDropList
+        #inProgress="cdkDropList"
+        [cdkDropListData]="inProgressTasks"
+        [cdkDropListConnectedTo]="[notStarted, finished]"
+        (cdkDropListDropped)="drop($event)"
+      >
+      </app-container-card-list>
+
+      <app-container-card-list
+        [title]="'Concluidas'"
+        [tasks]="finishedTasks"
+        [className]="'three'"
+        (notStarted)="notStartedTask($event)"
+        (inProgress)="inProgressTask($event)"
+        (finished)="finishedTask($event)"
+        (remove)="removeTask($event)"
+        cdkDropList
+        #finished="cdkDropList"
+        [cdkDropListData]="finishedTasks"
+        [cdkDropListConnectedTo]="[inProgress, notStarted]"
+        (cdkDropListDropped)="drop($event)"
+      >
+      </app-container-card-list>
+    </div>
+  </section>
+</main>

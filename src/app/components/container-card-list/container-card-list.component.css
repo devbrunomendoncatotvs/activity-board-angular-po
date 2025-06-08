@@ -1,0 +1,171 @@
+.card-remuse-task {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.card-remuse-task.one {
+  background-color: #fcfcfc;
+}
+.card-remuse-task.two {
+  background-color: #f2eaf6;
+}
+.card-remuse-task.three {
+  background-color: #8241a4;
+}
+.card-remuse-task h3 {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  word-break: break-all;
+}
+.card-remuse-task.one h3,
+.card-remuse-task.two h3 {
+  color: #1e1e1e;
+}
+.card-remuse-task.three h3 {
+  color: #f5f0ea;
+}
+.card-remuse-task ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  width: 100%;
+  min-height: 320px;
+  max-height: 320px;
+  overflow-y: scroll;
+}
+.card-remuse-task ul::-webkit-scrollbar {
+  display: none;
+}
+.card-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  max-width: 250px;
+  gap: 8px;
+  padding: 8px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: move;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.cdk-drag-preview.card-list-item {
+  background-color: #d9c2e5;
+}
+.cdk-drag-preview.card-list-item::-webkit-scrollbar {
+  display: none;
+}
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+.card-list-item.one {
+  background-color: #fdfdfd;
+}
+.card-list-item.two {
+  background-color: #f2eaf6;
+}
+.card-list-item.three {
+  background-color: #8241a4;
+}
+.card-list-item h4 {
+  font-size: 16px;
+  font-weight: 500;
+}
+.cdk-drag-preview h4 {
+  font-size: 16px;
+  font-weight: 500;
+}
+.card-remuse-task p {
+  font-size: 12px;
+  font-weight: 400;
+  word-break: break-all;
+}
+.cdk-drag-preview p {
+  font-size: 12px;
+  font-weight: 400;
+  word-break: break-all;
+}
+.card-remuse-task span {
+  font-size: 10px;
+  font-weight: 400;
+}
+.cdk-drag-preview span {
+  font-size: 10px;
+  font-weight: 400;
+}
+.card-remuse-task.one h4,
+.card-remuse-task.one p,
+.card-remuse-task.one span,
+.card-remuse-task.two h4,
+.card-remuse-task.two p,
+.card-remuse-task.two span {
+  color: #1e1e1e;
+}
+.card-remuse-task.three h4,
+.card-remuse-task.three p,
+.card-remuse-task.three span {
+  color: #f5f0ea;
+}
+.task-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  width: 100%;
+}
+.card-remuse-task button {
+  border: none;
+  font-size: 12px;
+  font-weight: 400;
+  border-radius: 8px;
+  padding: 4px;
+  width: 100%;
+  max-width: 280px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.cdk-drag-preview button {
+  border: none;
+  font-size: 12px;
+  font-weight: 400;
+  border-radius: 8px;
+  padding: 4px;
+  width: 100%;
+  max-width: 280px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.btnNotStarted {
+  background-color: #fcfcfc;
+  color: #1e1e1e;
+}
+.btnStart {
+  background-color: #e4c5f3;
+  color: #1e1e1e;
+}
+.btnFinish {
+  background-color: #8a4eaa;
+  color: #fcfcfc;
+}
+.btnDelete {
+  background-color: #fa5d5d;
+  color: #fcfcfc;
+}
+
+@media (max-width: 980px) {
+  .card-remuse-task ul {
+    min-height: 240px;
+    max-height: 240px;
+  }
+  .card-list-item {
+    max-width: 480px;
+  }
+}
