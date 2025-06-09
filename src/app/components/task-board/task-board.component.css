@@ -10,7 +10,7 @@
 .section-form h1 {
   font-size: 36px;
   font-weight: 500;
-  color: var(--color-lilac-600);
+  color: var(--color-black);
   text-align: center;
 }
 .task-form {
@@ -18,7 +18,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 12px;
-  background-color: var(--color-lilac-300);
+  background-color: var(--color-beige);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 16px 32px;
   border-radius: 8px;
@@ -49,7 +49,7 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  background-color: var(--color-lilac-300);
+  background-color: var(--color-beige);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   overflow-y: hidden;
   max-height: 488px;
@@ -57,7 +57,7 @@
 .section-resume-task h2 {
   font-size: 24px;
   font-weight: 500;
-  color: var(--color-lilac-600);
+  color: var(--color-black);
   text-align: center;
   padding-bottom: 16px;
 }

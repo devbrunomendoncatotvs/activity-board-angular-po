@@ -10,13 +10,13 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 .card-remuse-task.one {
-  background-color: var(--color-lilac-100);
+  background-color: var(--color-white);
 }
 .card-remuse-task.two {
-  background-color: var(--color-lilac-300);
+  background-color: var(--color-beige);
 }
 .card-remuse-task.three {
-  background-color: var(--color-lilac-600);
+  background-color: var(--color-green-300);
 }
 .card-remuse-task h3 {
   font-size: 20px;
@@ -26,10 +26,10 @@
 }
 .card-remuse-task.one h3,
 .card-remuse-task.two h3 {
-  color: #1e1e1e;
+  color: var(--color-black);
 }
 .card-remuse-task.three h3 {
-  color: #f5f0ea;
+  color: var(--color-white);
 }
 .card-remuse-task ul {
   display: flex;
@@ -59,7 +59,7 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 .cdk-drag-preview.card-list-item {
-  background-color: #d9c2e5;
+  background-color: #f5f0ea;
 }
 .cdk-drag-preview.card-list-item::-webkit-scrollbar {
   display: none;
@@ -67,14 +67,17 @@
 .cdk-drag-placeholder {
   opacity: 0;
 }
-.card-list-item.one {
-  background-color: var(--color-lilac-100);
+.card-remuse-task.one .card-list-item {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-green-300);
 }
-.card-list-item.two {
-  background-color: var(--color-lilac-300);
+.card-remuse-task.two .card-list-item {
+  background-color: var(--color-beige);
+  border: 1px solid var(--color-green-300);
 }
-.card-list-item.three {
-  background-color: var(--color-lilac-600);
+.card-remuse-task.three .card-list-item {
+  background-color: var(--color-green-300);
+  border: 1px solid var(--color-white);
 }
 .card-list-item h4 {
   font-size: 16px;
@@ -108,12 +111,12 @@
 .card-remuse-task.two h4,
 .card-remuse-task.two p,
 .card-remuse-task.two span {
-  color: #1e1e1e;
+  color: var(--color-black);
 }
 .card-remuse-task.three h4,
 .card-remuse-task.three p,
 .card-remuse-task.three span {
-  color: #f5f0ea;
+  color: var(--color-white);
 }
 .task-actions {
   display: grid;
@@ -144,20 +147,20 @@
   cursor: pointer;
 }
 .btnNotStarted {
-  background-color: var(--color-lilac-100);
-  color: #1e1e1e;
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
 .btnStart {
-  background-color: var(--color-lilac-300);
-  color: #1e1e1e;
+  background-color: var(--color-beige);
+  color: var(--color-black);
 }
 .btnFinish {
-  background-color: var(--color-lilac-600);
-  color: var(--color-lilac-100);
+  background-color: var(--color-green-300);
+  color: var(--color-white);
 }
 .btnDelete {
-  background-color: #fa5d5d;
-  color: var(--color-lilac-100);
+  background-color: var(--color-delete);
+  color: var(--color-white);
 }
 
 @media (max-width: 768px) {

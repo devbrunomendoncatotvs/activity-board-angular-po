@@ -4,9 +4,18 @@
   box-sizing: border-box;
 }
 :root {
-  --color-lilac-100: #fcfcfc;
-  --color-lilac-300: #f2eaf6;
-  --color-lilac-600: #8241a4;
+  --color-white: #fdfdfd;
+  --color-white-card: #ffffff;
+
+  --color-beige: #f5f0ea;
+  --color-beige-card: #faeee1;
+
+  --color-green-300: #6a8765;
+  --color-hover-green-300: #5a7 655;
+  --color-black: #1e1e1e;
+  --color-delete: #fa5d5d;
+
+  --color-placeholder: #aaaaaa;
 }
 main {
   display: flex;
@@ -29,4 +38,31 @@ body {
 app-container-card-list,
 app-input-form {
   width: 100%;
+}
+
+.input-form input.po-input {
+  --color: var(--color-green-300);
+  --text-color-placeholder: var(--color-placeholder);
+  --text-color: var(--color-black);
+
+  --outline-color-focused: var(--color-green-300);
+
+  --background: var(--color-white);
+  --background-hover: var(--color-white);
+}
+
+po-input po-field-container {
+  width: 100%;
+}
+po-button.button-form {
+  --color: var(--color-white);
+  --border-color-hover: var(--color-white);
+  --background-color: var(--color-green-300);
+  --background-hover: var(--color-hover-green-300);
+  --background-pressed: var(--color-hover-green-300);
+  --outline-color-focused: transparent;
+
+  --font-weight: 500;
+  --border-radius: 8px;
+  --border-width: 0;
 }
