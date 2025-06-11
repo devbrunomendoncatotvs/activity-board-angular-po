@@ -20,7 +20,7 @@
       </div>
       <po-button
         p-label="Adicionar atividade"
-        (p-click)="showAlert()"
+        (p-click)="handleShowAlert()"
         (p-click)="handleSubmitTask()"
         class="button-form po-lg-12"
       ></po-button>
@@ -35,15 +35,15 @@
         [title]="'Não iniciadas'"
         [className]="'one'"
         [tasks]="notStartedTasks"
-        (notStarted)="notStartedTask($event)"
-        (inProgress)="inProgressTask($event)"
-        (finished)="finishedTask($event)"
-        (remove)="removeTask($event)"
+        (notStarted)="handleNotStartedTask($event)"
+        (inProgress)="handleInProgressTask($event)"
+        (finished)="handleFinishedTask($event)"
+        (remove)="handleRemoveTask($event)"
         cdkDropList
         #notStarted="cdkDropList"
         [cdkDropListData]="notStartedTasks"
         [cdkDropListConnectedTo]="[inProgress, finished]"
-        (cdkDropListDropped)="drop($event)"
+        (cdkDropListDropped)="handleDrop($event)"
       >
       </app-container-card-list>
 
@@ -51,15 +51,15 @@
         [title]="'Iniciadas'"
         [tasks]="inProgressTasks"
         [className]="'two'"
-        (notStarted)="notStartedTask($event)"
-        (inProgress)="inProgressTask($event)"
-        (finished)="finishedTask($event)"
-        (remove)="removeTask($event)"
+        (notStarted)="handleNotStartedTask($event)"
+        (inProgress)="handleInProgressTask($event)"
+        (finished)="handleFinishedTask($event)"
+        (remove)="handleRemoveTask($event)"
         cdkDropList
         #inProgress="cdkDropList"
         [cdkDropListData]="inProgressTasks"
         [cdkDropListConnectedTo]="[notStarted, finished]"
-        (cdkDropListDropped)="drop($event)"
+        (cdkDropListDropped)="handleDrop($event)"
       >
       </app-container-card-list>
 
@@ -67,15 +67,15 @@
         [title]="'Concluidas'"
         [tasks]="finishedTasks"
         [className]="'three'"
-        (notStarted)="notStartedTask($event)"
-        (inProgress)="inProgressTask($event)"
-        (finished)="finishedTask($event)"
-        (remove)="removeTask($event)"
+        (notStarted)="handleNotStartedTask($event)"
+        (inProgress)="handleInProgressTask($event)"
+        (finished)="handleFinishedTask($event)"
+        (remove)="handleRemoveTask($event)"
         cdkDropList
         #finished="cdkDropList"
         [cdkDropListData]="finishedTasks"
         [cdkDropListConnectedTo]="[inProgress, notStarted]"
-        (cdkDropListDropped)="drop($event)"
+        (cdkDropListDropped)="handleDrop($event)"
       >
       </app-container-card-list>
     </div>

@@ -61,7 +61,7 @@ export class TaskBoardComponent {
     this.description = '';
   }
 
-  notStartedTask(ev: ITask) {
+  handleNotStartedTask(ev: ITask) {
     if (this.notStartedTasks.some((task) => task.id === ev.id)) return;
 
     this.inProgressTasks = this.inProgressTasks.filter(
@@ -72,7 +72,7 @@ export class TaskBoardComponent {
     this.notStartedTasks.push(ev);
   }
 
-  inProgressTask(ev: ITask) {
+  handleInProgressTask(ev: ITask) {
     if (this.inProgressTasks.some((task) => task.id === ev.id)) return;
 
     this.notStartedTasks = this.notStartedTasks.filter(
@@ -83,7 +83,7 @@ export class TaskBoardComponent {
     this.inProgressTasks.push(ev);
   }
 
-  finishedTask(ev: ITask) {
+  handleFinishedTask(ev: ITask) {
     if (this.finishedTasks.some((task) => task.id === ev.id)) return;
 
     this.notStartedTasks = this.notStartedTasks.filter(
@@ -96,7 +96,7 @@ export class TaskBoardComponent {
     this.finishedTasks.push(ev);
   }
 
-  removeTask(ev: ITask) {
+  handleRemoveTask(ev: ITask) {
     this.notStartedTasks = this.notStartedTasks.filter(
       (task) => task.id !== ev.id
     );
@@ -113,7 +113,7 @@ export class TaskBoardComponent {
     });
   }
 
-  drop(event: CdkDragDrop<ITask[]>) {
+  handleDrop(event: CdkDragDrop<ITask[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -130,7 +130,7 @@ export class TaskBoardComponent {
     }
   }
 
-  showAlert(): void {
+  handleShowAlert(): void {
     if (this.title.length < 3 || this.description.length < 3) {
       Swal.fire({
         icon: 'error',
