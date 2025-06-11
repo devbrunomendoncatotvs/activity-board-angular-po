@@ -79,12 +79,29 @@ describe('TaskBoardComponent', () => {
       component.finishedTasks = [];
     });
 
-    //Deve mover uma task de inProgressTasks para notStartedTasks
-    it('should move task from inProgressTasks to notStartedTasks', () => {
+    it('should not move task if it already exists in the class she is in', () => {
+      component.notStartedTasks = [taskMock];
+      component.inProgressTasks = [taskMock];
+      component.finishedTasks = [taskMock];
+      const initialNotStartedTasks = component.notStartedTasks.length;
+      const initialInprogressTasks = component.inProgressTasks.length;
+      const initialFinishedTasks = component.finishedTasks.length;
+
+      component.handleNotStartedTask(taskMock);
+      component.handleInProgressTask(taskMock);
+      component.handleFinishedTask(taskMock);
+
+      expect(component.notStartedTasks.length).toBe(initialNotStartedTasks);
+      expect(component.inProgressTasks.length).toBe(initialInprogressTasks);
+      expect(component.finishedTasks.length).toBe(initialFinishedTasks);
+    });
+
+    //Deve mover uma task de inProgressTasks ou finishedTasks para notStartedTasks
+    it('should move task from inProgressTasks or finishedTasks to notStartedTasks', () => {
       // 1. Preparação (Arrange)
       component.inProgressTasks = [taskMock];
+      component.finishedTasks = [taskMock];
       component.notStartedTasks = [];
-      //component.finishedTasks = []
 
       // 2. Ação (Act)
       component.handleNotStartedTask(taskMock);
@@ -92,27 +109,14 @@ describe('TaskBoardComponent', () => {
       // 3. Verificação (Assert)
       expect(component.notStartedTasks).toContain(taskMock);
       expect(component.inProgressTasks).not.toContain(taskMock);
-      //expect(component.finishedTasks).not.toContain(taskMock);
-    });
-
-    //Deve mover uma task de finishedTask para notStartedTasks
-    it('should move task from finishedTask to notStartedTasks', () => {
-      // 1. Preparação (Arrange)
-      component.finishedTasks = [taskMock];
-      component.notStartedTasks = [];
-
-      // 2. Ação (Act)
-      component.handleNotStartedTask(taskMock);
-
-      // 3. Verificação (Assert)
-      expect(component.notStartedTasks).toContain(taskMock);
       expect(component.finishedTasks).not.toContain(taskMock);
     });
 
-    //Deve mover uma task de notStartedTasks para inProgressTasks
+    //Deve mover uma task de notStartedTasks ou finishedTasks para inProgressTasks
     it('should move task from notStartedTasks to inProgressTasks', () => {
       // 1. Preparação (Arrange)
       component.notStartedTasks = [taskMock];
+      component.finishedTasks = [taskMock];
       component.inProgressTasks = [];
 
       // 2. Ação (Act)
@@ -121,38 +125,19 @@ describe('TaskBoardComponent', () => {
       // 3. Verificação (Assert)
       expect(component.inProgressTasks).toContain(taskMock);
       expect(component.notStartedTasks).not.toContain(taskMock);
-    });
-
-    //Deve mover uma task de finishedTasks para inProgressTask
-    it('should move task from finishedTasks to inProgresTasks', () => {
-      component.finishedTasks = [taskMock];
-      component.inProgressTasks = [];
-
-      component.handleInProgressTask(taskMock);
-
-      expect(component.inProgressTasks).toContain(taskMock);
       expect(component.finishedTasks).not.toContain(taskMock);
     });
 
-    //Deve mover uma task de notStartedTasks para finishedTasks
-    it('should move task from notStartedTask to finishedTask', () => {
+    //Deve mover uma task de notStartedTasks ou inProgressTasks para finishedTasks
+    it('should move task from notStartedTask or inProgressTasks to finishedTask', () => {
       component.notStartedTasks = [taskMock];
-      component.finishedTasks = [];
-
-      component.handleFinishedTask(taskMock);
-
-      expect(component.finishedTasks).toContain(taskMock);
-      expect(component.notStartedTasks).not.toContain(taskMock);
-    });
-
-    //Deve mover uma task de inProgressTasks para finishedTasks
-    it('shold move task from inProgress to finishedTasks', () => {
       component.inProgressTasks = [taskMock];
       component.finishedTasks = [];
 
       component.handleFinishedTask(taskMock);
 
       expect(component.finishedTasks).toContain(taskMock);
+      expect(component.notStartedTasks).not.toContain(taskMock);
       expect(component.inProgressTasks).not.toContain(taskMock);
     });
   });
