@@ -114,13 +114,7 @@ export class TaskBoardComponent {
   }
 
   handleDrop(event: CdkDragDrop<ITask[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
-    } else {
+    if (event.previousContainer !== event.container) {
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,

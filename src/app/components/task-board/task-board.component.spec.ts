@@ -238,10 +238,9 @@ describe('TaskBoardComponent', () => {
       expect(component.finishedTasks[1].id).toBe(1);
     });
 
-    //Continuar
-    it('should transfer item between containers', () => {
+    it('should transfer task from notStartedTasks to inProgressTasks', () => {
       component.notStartedTasks = [tasksMock[0]];
-      component.inProgressTasks = [tasksMock[1]];
+      component.inProgressTasks = [];
       const event = {
         previousContainer: { data: component.notStartedTasks },
         container: { data: component.inProgressTasks },
@@ -251,9 +250,88 @@ describe('TaskBoardComponent', () => {
 
       component.handleDrop(event);
 
-      expect(component.notStartedTasks.length).toBe(0);
-      expect(component.inProgressTasks.length).toBe(2);
-      expect(component.inProgressTasks[1].id).toBe(1);
+      expect(component.notStartedTasks).not.toContain(tasksMock[0]);
+      expect(component.inProgressTasks).toContain(tasksMock[0]);
+    });
+
+    it('should transfer task from notStartedTasks to finishedTasks', () => {
+      component.notStartedTasks = [tasksMock[0]];
+      component.finishedTasks = [];
+      const event = {
+        previousContainer: { data: component.notStartedTasks },
+        container: { data: component.finishedTasks },
+        previousIndex: 0,
+        currentIndex: 1,
+      } as CdkDragDrop<ITask[]>;
+
+      component.handleDrop(event);
+
+      expect(component.notStartedTasks).not.toContain(tasksMock[0]);
+      expect(component.finishedTasks).toContain(tasksMock[0]);
+    });
+
+    it('should transfer task from inProgressTasks to notStartedTasks', () => {
+      component.inProgressTasks = [tasksMock[0]];
+      component.notStartedTasks = [];
+      const event = {
+        previousContainer: { data: component.inProgressTasks },
+        container: { data: component.notStartedTasks },
+        previousIndex: 0,
+        currentIndex: 1,
+      } as CdkDragDrop<ITask[]>;
+
+      component.handleDrop(event);
+
+      expect(component.inProgressTasks).not.toContain(tasksMock[0]);
+      expect(component.notStartedTasks).toContain(tasksMock[0]);
+    });
+
+    it('should transfer task from inProgressTasks to finishedTasks', () => {
+      component.inProgressTasks = [tasksMock[0]];
+      component.finishedTasks = [];
+      const event = {
+        previousContainer: { data: component.inProgressTasks },
+        container: { data: component.finishedTasks },
+        previousIndex: 0,
+        currentIndex: 1,
+      } as CdkDragDrop<ITask[]>;
+
+      component.handleDrop(event);
+
+      expect(component.inProgressTasks).not.toContain(tasksMock[0]);
+      expect(component.finishedTasks).toContain(tasksMock[0]);
+    });
+
+    it('should transfer task from finishedTasks to notStartedTasks', () => {
+      component.finishedTasks = [tasksMock[0]];
+      component.notStartedTasks = [];
+      const event = {
+        previousContainer: { data: component.finishedTasks },
+        container: { data: component.notStartedTasks },
+        previousIndex: 0,
+        currentIndex: 1,
+      } as CdkDragDrop<ITask[]>;
+
+      component.handleDrop(event);
+
+      expect(component.finishedTasks).not.toContain(tasksMock[0]);
+      expect(component.notStartedTasks).toContain(tasksMock[0]);
+    });
+
+    it('should transfer task from finishedTasks to inProgressTasks', () => {
+      component.finishedTasks = [tasksMock[0]];
+      component.inProgressTasks = [];
+      const event = {
+        previousContainer: { data: component.finishedTasks },
+        container: { data: component.inProgressTasks },
+        previousIndex: 0,
+        currentIndex: 1,
+      } as CdkDragDrop<ITask[]>;
+
+      component.handleDrop(event);
+
+      expect(component.finishedTasks).not.toContain(tasksMock[0]);
+      expect(component.inProgressTasks).toContain(tasksMock[0]);
     });
   });
 
